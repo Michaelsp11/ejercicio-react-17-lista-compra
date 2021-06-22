@@ -14,7 +14,7 @@ function App() {
       <main className="acerca-de">
         <h2>Acerca de Lista de la compra</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem officia
+          Lorem ipsu dolor sit amet consectetur adipisicing elit. Autem officia
           odio reiciendis vel architecto molestiae, saepe temporibus beatae
           perferendis iste quod excepturi, sit molestias assumenda? Officia
           dolorum similique placeat enim.
