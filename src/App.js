@@ -26,7 +26,7 @@ function App() {
           <Route path="/acercade" exact>
             <PaginaAcercaDe />
           </Route>
-          <Route path="/nuevo-articulo" exact>
+          <Route path="/crear-articulo" exact>
             <PaginaFormulario />
           </Route>
           <Route path="/" exact>
