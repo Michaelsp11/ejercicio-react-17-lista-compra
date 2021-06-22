@@ -2,7 +2,7 @@
 import { FaPlusCircle } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 export const PaginaLista = (props) => {
-  const {articulos,articulosComprados,toogleComprado} = props;
+  const {articulos,articulosComprados,precioTotal,toogleComprado} = props;
   const history = useHistory();
   const crearArticulo = () => {
     history.push(`/crear-articulo`);
@@ -26,7 +26,7 @@ export const PaginaLista = (props) => {
                   }
                   )}
                 </ul>
-                <span className="precio-total">1.95€</span>
+                <span className="precio-total">{`${precioTotal}€`}</span>
             </main>
         </>
     )

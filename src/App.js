@@ -22,6 +22,7 @@ function App() {
     setArticulos(articulosAPI);
   },[apiArticulos]);
   const articulosComprados = articulos.filter((articulo) => articulo.comprado).length;
+  const precioTotal = articulos.filter((articulo) => articulo.comprado).reduce((acumulador,articulo) => acumulador + articulo.precio, 0).toFixed(2);
   useEffect(()=>{
     getArticulos();
   },[getArticulos]);
@@ -55,7 +56,7 @@ function App() {
             <PaginaPrincipal />
           </Route>
           <Route path="/lista" exact>
-            <PaginaLista articulos={articulos} articulosComprados={articulosComprados} toogleComprado={toogleComprado}/>
+            <PaginaLista articulos={articulos} articulosComprados={articulosComprados} precioTotal={precioTotal} toogleComprado={toogleComprado}/>
           </Route>
           <Route path="/acercade" exact>
             <PaginaAcercaDe />
