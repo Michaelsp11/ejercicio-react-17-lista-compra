@@ -1,15 +1,28 @@
-
 import { Principal } from "./componentes/Principal";
 import { Cabecera } from "./componentes/Cabecera";
+import {
+  Route,
+  Switch,
+  BrowserRouter as Router,
+  Redirect,
+} from "react-router-dom";
 function App() {
   return (
     <>
-      {/*====================CABECERA======================*/}
       <Cabecera />
-      {/*====================CABECERA======================*/}
-      {/*====================PRINCIPAL======================*/}
-      <Principal />
-      {/*======================PRINCIPAL====================*/}
+      <Router>
+        <Switch>
+          <Route path="/principal" exact>
+            <Principal />
+          </Route>
+          <Route path="/" exact>
+            <Redirect to="/principal" />
+          </Route>
+          <Route path="**" exact>
+            <Redirect to="/principal" />
+          </Route>
+        </Switch>
+      </Router>
       {/*====================ACERCA DE======================*/}
       <main className="acerca-de">
         <h2>Acerca de Lista de la compra</h2>
@@ -82,7 +95,6 @@ function App() {
       </main>
       {/*====================FORMULARIO======================*/}
     </>
-
   );
 }
 
