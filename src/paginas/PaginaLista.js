@@ -1,8 +1,8 @@
 
-import { FaPlusCircle } from "react-icons/fa";
+import { FaPlusCircle,FaTimes } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 export const PaginaLista = (props) => {
-  const {articulos,articulosComprados,precioTotal,toogleComprado} = props;
+  const {articulos,articulosComprados,precioTotal,toogleComprado,borrarArticulo} = props;
   const history = useHistory();
   const crearArticulo = () => {
     history.push(`/crear-articulo`);
@@ -22,9 +22,9 @@ export const PaginaLista = (props) => {
                     const {id,nombre,precio,comprado} = articulo;
                     return (<li className="articulo" key={id}>
                         <input type="checkbox" className="marcar" checked={comprado} onChange={() => toogleComprado(articulo)}/>
-                        <span className="nombre" onClick={() => editarArticulo(+id)}>{nombre}</span>
+                        <span className="nombre" onClick={() => editarArticulo(id)}>{nombre}</span>
                         <span className="precio">{precio !== null ? `${precio.toFixed(2)}€` : ""}</span>
-                        <i className="borrar fas fa-times"></i>
+                        <FaTimes className="borrar" onClick={() => borrarArticulo(id)}/>
                     </li>);
                   }
                   )}
