@@ -1,10 +1,8 @@
-
-<<<<<<< HEAD
-
-=======
 import { Principal } from "./componentes/Principal";
 import { Cabecera } from "./componentes/Cabecera";
->>>>>>> b6693b31c628f1f5a01c576b37e1113f17a8d283
+import { Formulario } from "./componentes/Formulario";
+import { Lista } from "./componentes/Lista";
+
 function App() {
   return (
     <>
@@ -38,52 +36,10 @@ function App() {
       </main>
       {/*====================ACERCA DE======================*/}
       {/*====================LISTA======================*/}
-      <section className="info espaciado bloque-superior">
-        <i className="icono fas fa-plus-circle"></i>
-        <p className="n-articulos">2/3 comprados</p>
-      </section>
-      <main className="principal espaciado">
-        <ul className="articulos">
-          <li className="articulo">
-            <input type="checkbox" className="marcar" />
-            <span className="nombre">Pan</span>
-            <span className="precio">0.75€</span>
-            <i className="borrar fas fa-times"></i>
-          </li>
-          <li className="articulo">
-            <input type="checkbox" className="marcar" />
-            <span className="nombre">Azúcar</span>
-            <i className="borrar fas fa-times"></i>
-          </li>
-          <li className="articulo">
-            <input type="checkbox" className="marcar" />
-            <span className="nombre">Leche</span>
-            <span className="precio">1.20€</span>
-            <i className="borrar fas fa-times"></i>
-          </li>
-        </ul>
-        <span className="precio-total">1.95€</span>
-      </main>
+      <Lista />
       {/*====================LISTA======================*/}
       {/*====================FORMULARIO======================*/}
-      <section className="info espaciado bloque-superior">
-        <i className="icono fas fa-minus-circle"></i>
-        <p className="n-articulos">2/3 comprados</p>
-      </section>
-      <main className="principal espaciado">
-        <h2 className="titulo-seccion">Editar artículo</h2>
-        <form className="form-crear">
-          <label htmlFor="nombre">Nombre:</label>
-          <input className="control" type="text" id="nombre" />
-          <label htmlFor="precio">Precio:</label>
-          <div className="control-moneda">
-            <input className="control" type="number" id="precio" /> €
-          </div>
-          <button className="enviar" type="submit">
-            Modificar
-          </button>
-        </form>
-      </main>
+      <Formulario />
       {/*====================FORMULARIO======================*/}
     </>
 
