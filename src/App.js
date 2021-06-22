@@ -48,13 +48,9 @@ function App() {
       }
     );
     setArticulos(
-      articulos.map((articulo) => {
-        if (articulo.id === nuevoArticulo.id) {
-          return nuevoArticulo;
-        } else {
-          return articulo;
-        }
-      })
+      articulos.map((articulo) =>
+        articulo.id === nuevoArticulo.id ? nuevoArticulo : articulo
+      )
     );
 
   }
@@ -86,6 +82,19 @@ function App() {
       })
     );
   }
+  const borrarArticulo = (id) => {
+    fetch(apiArticulos + id,
+      {
+      method:"DELETE",
+      }
+    );
+    setArticulos(
+      articulos.filter((articulo) =>
+        articulo.id !== id
+      )
+    );
+
+  }
   return (
     <>
       <Router>
@@ -95,7 +104,7 @@ function App() {
             <PaginaPrincipal />
           </Route>
           <Route path="/lista" exact>
-            <PaginaLista articulos={articulos} articulosComprados={articulosComprados} precioTotal={precioTotal} toogleComprado={toogleComprado}/>
+            <PaginaLista articulos={articulos} articulosComprados={articulosComprados} precioTotal={precioTotal} toogleComprado={toogleComprado} borrarArticulo={borrarArticulo}/>
           </Route>
           <Route path="/acercade" exact>
             <PaginaAcercaDe />
