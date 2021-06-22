@@ -70,7 +70,7 @@ body {
 .cabecera .navegacion .actual {
   font-weight: bold;
 }
-i.icono {
+.icono {
   font-size: 38px;
 }
 .n-articulos {
