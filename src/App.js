@@ -1,5 +1,9 @@
+import { Principal } from "./componentes/Principal";
+
 function App() {
-  return <p>Hola</p>;
+  return (
+    <Principal />
+  );
 }
 
 export default App;
