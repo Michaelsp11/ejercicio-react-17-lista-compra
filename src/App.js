@@ -10,7 +10,6 @@ import { Formulario } from "./componentes/Formulario";
 import { Lista } from "./componentes/Lista";
 import { AcercaDe } from "./componentes/AcercaDe";
 
-
 function App() {
   return (
     <>
@@ -20,17 +19,14 @@ function App() {
           <Route path="/principal" exact>
             <Principal />
           </Route>
-          <Route path="/" exact>
-            <Redirect to="/principal" />
+          <Route path="/acercade" exact>
+            <AcercaDe />
           </Route>
-          <Route path="**" exact>
+          <Route path="/" exact>
             <Redirect to="/principal" />
           </Route>
         </Switch>
       </Router>
-      {/*====================ACERCA DE======================*/}
-      <AcercaDe />
-      {/*====================ACERCA DE======================*/}
       {/*====================LISTA======================*/}
       <Lista />
       {/*====================LISTA======================*/}
