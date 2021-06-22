@@ -1,10 +1,15 @@
 
 import { FaPlusCircle } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 export const PaginaLista = () => {
+  const history = useHistory();
+  const crearArticulo = () => {
+    history.push(`/crear-articulo`);
+  }
     return (
         <>
             <section className="info espaciado bloque-superior">
-                <FaPlusCircle className="icono"/>
+                <FaPlusCircle className="icono" onClick={crearArticulo}/>
                 <p className="n-articulos">2/3 comprados</p>
             </section>
             <main className="principal espaciado">

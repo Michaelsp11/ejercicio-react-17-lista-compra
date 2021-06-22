@@ -1,9 +1,14 @@
 import { FaMinusCircle } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 export const PaginaFormulario = () => {
+  const history = useHistory();
+  const backToList = () => {
+    history.push(`/lista`);
+  }
     return (
         <>
             <section className="info espaciado bloque-superior">
-                <FaMinusCircle className="icono" />
+                <FaMinusCircle className="icono" onClick={backToList}/>
                 <p className="n-articulos">2/3 comprados</p>
             </section>
             <main className="principal espaciado">
