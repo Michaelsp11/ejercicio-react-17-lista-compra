@@ -7,6 +7,9 @@ export const PaginaLista = (props) => {
   const crearArticulo = () => {
     history.push(`/crear-articulo`);
   }
+  const editarArticulo = (id) => {
+    history.push(`/editar-articulo/${id}`);
+  }
     return (
         <>
             <section className="info espaciado bloque-superior">
@@ -19,7 +22,7 @@ export const PaginaLista = (props) => {
                     const {id,nombre,precio,comprado} = articulo;
                     return (<li className="articulo" key={id}>
                         <input type="checkbox" className="marcar" checked={comprado} onChange={() => toogleComprado(articulo)}/>
-                        <span className="nombre">{nombre}</span>
+                        <span className="nombre" onClick={() => editarArticulo(+id)}>{nombre}</span>
                         <span className="precio">{precio !== null ? `${precio.toFixed(2)}€` : ""}</span>
                         <i className="borrar fas fa-times"></i>
                     </li>);
