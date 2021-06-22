@@ -1,34 +1,20 @@
+import { Cabecera } from "./componentes/Cabecera";
 function App() {
   return (
     <>
       {/*====================CABECERA======================*/}
-      <header class="cabecera espaciado bloque-superior">
-        <h1>Lista de la compra</h1>
-        <nav>
-          <ul class="navegacion">
-            <li>
-              <a href="principal">Principal</a>
-            </li>
-            <li class="actual">
-              <a href="lista">Lista</a>
-            </li>
-            <li>
-              <a href="acerca-de">Acerca de</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <Cabecera />
       {/*====================CABECERA======================*/}
       {/*====================PRINCIPAL======================*/}
-      <main class="home">
+      <main className="home">
         <h2>Bienvenido a la lista de la compra</h2>
       </main>
       {/*======================PRINCIPAL====================*/}
       {/*====================ACERCA DE======================*/}
-      <main class="acerca-de">
+      <main className="acerca-de">
         <h2>Acerca de Lista de la compra</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem officia
+          Lorem ipsu dolor sit amet consectetur adipisicing elit. Autem officia
           odio reiciendis vel architecto molestiae, saepe temporibus beatae
           perferendis iste quod excepturi, sit molestias assumenda? Officia
           dolorum similique placeat enim.
@@ -48,48 +34,48 @@ function App() {
       </main>
       {/*====================ACERCA DE======================*/}
       {/*====================LISTA======================*/}
-      <section class="info espaciado bloque-superior">
-        <i class="icono fas fa-plus-circle"></i>
-        <p class="n-articulos">2/3 comprados</p>
+      <section className="info espaciado bloque-superior">
+        <i className="icono fas fa-plus-circle"></i>
+        <p className="n-articulos">2/3 comprados</p>
       </section>
-      <main class="principal espaciado">
-        <ul class="articulos">
-          <li class="articulo">
-            <input type="checkbox" class="marcar" />
-            <span class="nombre">Pan</span>
-            <span class="precio">0.75€</span>
-            <i class="borrar fas fa-times"></i>
+      <main className="principal espaciado">
+        <ul className="articulos">
+          <li className="articulo">
+            <input type="checkbox" className="marcar" />
+            <span className="nombre">Pan</span>
+            <span className="precio">0.75€</span>
+            <i className="borrar fas fa-times"></i>
           </li>
-          <li class="articulo">
-            <input type="checkbox" class="marcar" />
-            <span class="nombre">Azúcar</span>
-            <i class="borrar fas fa-times"></i>
+          <li className="articulo">
+            <input type="checkbox" className="marcar" />
+            <span className="nombre">Azúcar</span>
+            <i className="borrar fas fa-times"></i>
           </li>
-          <li class="articulo">
-            <input type="checkbox" class="marcar" />
-            <span class="nombre">Leche</span>
-            <span class="precio">1.20€</span>
-            <i class="borrar fas fa-times"></i>
+          <li className="articulo">
+            <input type="checkbox" className="marcar" />
+            <span className="nombre">Leche</span>
+            <span className="precio">1.20€</span>
+            <i className="borrar fas fa-times"></i>
           </li>
         </ul>
-        <span class="precio-total">1.95€</span>
+        <span className="precio-total">1.95€</span>
       </main>
       {/*====================LISTA======================*/}
       {/*====================FORMULARIO======================*/}
-      <section class="info espaciado bloque-superior">
-        <i class="icono fas fa-minus-circle"></i>
-        <p class="n-articulos">2/3 comprados</p>
+      <section className="info espaciado bloque-superior">
+        <i className="icono fas fa-minus-circle"></i>
+        <p className="n-articulos">2/3 comprados</p>
       </section>
-      <main class="principal espaciado">
-        <h2 class="titulo-seccion">Editar artículo</h2>
-        <form class="form-crear">
-          <label for="nombre">Nombre:</label>
-          <input class="control" type="text" id="nombre" />
-          <label for="precio">Precio:</label>
-          <div class="control-moneda">
-            <input class="control" type="number" id="precio" /> €
+      <main className="principal espaciado">
+        <h2 className="titulo-seccion">Editar artículo</h2>
+        <form className="form-crear">
+          <label htmlFor="nombre">Nombre:</label>
+          <input className="control" type="text" id="nombre" />
+          <label htmlFor="precio">Precio:</label>
+          <div className="control-moneda">
+            <input className="control" type="number" id="precio" /> €
           </div>
-          <button class="enviar" type="submit">
+          <button className="enviar" type="submit">
             Modificar
           </button>
         </form>
