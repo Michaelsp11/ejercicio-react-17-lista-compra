@@ -9,9 +9,43 @@ import {
   BrowserRouter as Router,
   Redirect,
 } from "react-router-dom";
+import { useCallback, useEffect, useState } from "react";
 
 
 function App() {
+  //URL a la api de articulos, se encuentra en el archivo .env
+  const apiArticulos = process.env.REACT_APP_APP_ARTICULOS;
+  const [articulos,setArticulos] = useState([]);
+  const getArticulos = useCallback(async() => {
+    const resp = await fetch(apiArticulos);
+    const articulosAPI = await resp.json();
+    setArticulos(articulosAPI);
+  },[apiArticulos]);
+  const articulosComprados = articulos.filter((senyor) => senyor.marcado).length;
+  useEffect(()=>{
+    getArticulos();
+  },[getArticulos]);
+  const toogleComprado = (articuloNuevo) =>{
+    fetch(apiArticulos + articuloNuevo.id,
+      {
+      method:"PUT",
+      headers:{"content-Type":"application/json"},
+      body:JSON.stringify({...articuloNuevo,comprado: articuloNuevo.comprado ? false : true}),
+      }
+    );
+    setArticulos(
+      articulos.map((articulo) => {
+        if (articulo.id === articuloNuevo.id) {
+          return {
+            ...articulo,
+            comprado: articuloNuevo.comprado? false : true,
+          };
+        } else {
+          return articulo;
+        }
+      })
+    );
+  }
   return (
     <>
       <Router>
@@ -21,7 +55,7 @@ function App() {
             <PaginaPrincipal />
           </Route>
           <Route path="/lista" exact>
-            <PaginaLista />
+            <PaginaLista articulos={articulos} articulosComprados={articulosComprados} toogleComprado={toogleComprado}/>
           </Route>
           <Route path="/acercade" exact>
             <PaginaAcercaDe />
