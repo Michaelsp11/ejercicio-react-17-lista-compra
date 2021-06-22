@@ -21,7 +21,7 @@ function App() {
     const articulosAPI = await resp.json();
     setArticulos(articulosAPI);
   },[apiArticulos]);
-  const articulosComprados = articulos.filter((senyor) => senyor.marcado).length;
+  const articulosComprados = articulos.filter((articulo) => articulo.comprado).length;
   useEffect(()=>{
     getArticulos();
   },[getArticulos]);
@@ -61,7 +61,7 @@ function App() {
             <PaginaAcercaDe />
           </Route>
           <Route path="/crear-articulo" exact>
-            <PaginaFormulario />
+            <PaginaFormulario totalArticulos={articulos.length} articulosComprados={articulosComprados}/>
           </Route>
           <Route path="/" exact>
             <Redirect to="/principal" />
