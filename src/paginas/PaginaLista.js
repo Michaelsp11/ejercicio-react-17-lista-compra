@@ -1,7 +1,9 @@
 
+import { useCallback, useEffect, useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
-export const PaginaLista = () => {
+export const PaginaLista = (props) => {
+  const {articulos,articulosComprados,toogleComprado} = props;
   const history = useHistory();
   const crearArticulo = () => {
     history.push(`/crear-articulo`);
@@ -10,31 +12,23 @@ export const PaginaLista = () => {
         <>
             <section className="info espaciado bloque-superior">
                 <FaPlusCircle className="icono" onClick={crearArticulo}/>
-                <p className="n-articulos">2/3 comprados</p>
+                <p className="n-articulos">{`${articulosComprados}/${articulos.length} comprados`}</p>
             </section>
             <main className="principal espaciado">
                 <ul className="articulos">
-                    <li className="articulo">
-                        <input type="checkbox" className="marcar"/>
-                        <span className="nombre">Pan</span>
-                        <span className="precio">0.75€</span>
+                  {articulos.map((articulo) =>{
+                    const {id,nombre,precio,comprado} = articulo;
+                    return (<li className="articulo" key={id}>
+                        <input type="checkbox" className="marcar" checked={comprado} onChange={() => toogleComprado(articulo)}/>
+                        <span className="nombre">{nombre}</span>
+                        <span className="precio">{precio? `${precio.toFixed(2)}€` : ""}</span>
                         <i className="borrar fas fa-times"></i>
-                    </li>
-                    <li className="articulo">
-                        <input type="checkbox" className="marcar"/>
-                        <span className="nombre">Azúcar</span>
-                        <i className="borrar fas fa-times"></i>
-                    </li>
-                    <li className="articulo">
-                        <input type="checkbox" className="marcar"/>
-                        <span className="nombre">Leche</span>
-                        <span className="precio">1.20€</span>
-                        <i className="borrar fas fa-times"></i>
-                    </li>
+                    </li>);
+                  }
+                  )}
                 </ul>
                 <span className="precio-total">1.95€</span>
             </main>
-
         </>
     )
 
