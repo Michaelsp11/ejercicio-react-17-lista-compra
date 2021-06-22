@@ -5,13 +5,13 @@ export const Cabecera = () => {
       <nav>
         <ul className="navegacion">
           <li>
-            <a href="principal">Principal</a>
+            <a href="componentes/Principal.js">Principal</a>
           </li>
           <li className="actual">
-            <a href="lista">Lista</a>
+            <a href="componentes/Lista.js">Lista</a>
           </li>
           <li>
-            <a href="acerca-de">Acerca de</a>
+            <a href="componentes/AcercaDe.js">Acerca de</a>
           </li>
         </ul>
       </nav>
