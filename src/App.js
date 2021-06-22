@@ -19,6 +19,9 @@ function App() {
           <Route path="/principal" exact>
             <Principal />
           </Route>
+          <Route path="/lista" exact>
+            <Lista />
+          </Route>
           <Route path="/acercade" exact>
             <AcercaDe />
           </Route>
@@ -27,9 +30,6 @@ function App() {
           </Route>
         </Switch>
       </Router>
-      {/*====================LISTA======================*/}
-      <Lista />
-      {/*====================LISTA======================*/}
       {/*====================FORMULARIO======================*/}
       <Formulario />
       {/*====================FORMULARIO======================*/}
