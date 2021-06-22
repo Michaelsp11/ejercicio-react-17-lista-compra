@@ -1,8 +1,10 @@
-export const Lista = () => {
+
+import { FaPlusCircle } from "react-icons/fa";
+export const PaginaLista = () => {
     return (
         <>
             <section className="info espaciado bloque-superior">
-                <i className="icono fas fa-plus-circle"></i>
+                <FaPlusCircle className="icono"/>
                 <p className="n-articulos">2/3 comprados</p>
             </section>
             <main className="principal espaciado">

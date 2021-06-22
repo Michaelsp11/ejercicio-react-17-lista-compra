@@ -1,4 +1,4 @@
-export const AcercaDe = () => {
+export const PaginaAcercaDe = () => {
     return (
         <main className="acerca-de">
             <h2>Acerca de Lista de la compra</h2>

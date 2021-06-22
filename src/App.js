@@ -1,14 +1,15 @@
-import { Principal } from "./componentes/Principal";
 import { Cabecera } from "./componentes/Cabecera";
+import { PaginaPrincipal } from "./paginas/PaginaPrincipal";
+import { PaginaFormulario } from "./paginas/PaginaFormulario";
+import { PaginaLista } from "./paginas/PaginaLista";
+import { PaginaAcercaDe } from "./paginas/PaginaAcercaDe";
 import {
   Route,
   Switch,
   BrowserRouter as Router,
   Redirect,
 } from "react-router-dom";
-import { Formulario } from "./componentes/Formulario";
-import { Lista } from "./componentes/Lista";
-import { AcercaDe } from "./componentes/AcercaDe";
+
 
 function App() {
   return (
@@ -17,22 +18,22 @@ function App() {
         <Cabecera />
         <Switch>
           <Route path="/principal" exact>
-            <Principal />
+            <PaginaPrincipal />
           </Route>
           <Route path="/lista" exact>
-            <Lista />
+            <PaginaLista />
           </Route>
           <Route path="/acercade" exact>
-            <AcercaDe />
+            <PaginaAcercaDe />
+          </Route>
+          <Route path="/nuevo-articulo" exact>
+            <PaginaFormulario />
           </Route>
           <Route path="/" exact>
             <Redirect to="/principal" />
           </Route>
         </Switch>
       </Router>
-      {/*====================FORMULARIO======================*/}
-      <Formulario />
-      {/*====================FORMULARIO======================*/}
     </>
   );
 }
