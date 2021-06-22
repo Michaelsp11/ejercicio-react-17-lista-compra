@@ -1,5 +1,4 @@
 
-import { useCallback, useEffect, useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 export const PaginaLista = (props) => {
