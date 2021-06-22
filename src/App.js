@@ -16,11 +16,6 @@ function App() {
   //URL a la api de articulos, se encuentra en el archivo .env
   const apiArticulos = process.env.REACT_APP_APP_ARTICULOS;
   const [articulos,setArticulos] = useState([]);
-  const articulo = {
-    nombre: "",
-    precio: 0,
-    comprado: false,
-  };
   const getArticulos = useCallback(async() => {
     const resp = await fetch(apiArticulos);
     const articulosAPI = await resp.json();
@@ -43,8 +38,33 @@ function App() {
       const nuevoArticulo = await resp.json();
       setArticulos([...articulos,nuevoArticulo]);
     }
+  }
+  const editarArticulo = async(nuevoArticulo) => {
+    fetch(apiArticulos + nuevoArticulo.id,
+      {
+      method:"PUT",
+      headers:{"content-Type":"application/json"},
+      body:JSON.stringify(nuevoArticulo),
+      }
+    );
+    setArticulos(
+      articulos.map((articulo) => {
+        if (articulo.id === nuevoArticulo.id) {
+          return nuevoArticulo;
+        } else {
+          return articulo;
+        }
+      })
+    );
 
   }
+  const buscarArticulo = (id) => articulos.reduce((acumulador,articulo) => {
+    if(articulo.id === id){
+      acumulador = articulo;
+      return acumulador;
+    }
+    return acumulador;
+  },{});
   const toogleComprado = (articuloNuevo) =>{
     fetch(apiArticulos + articuloNuevo.id,
       {
@@ -81,7 +101,10 @@ function App() {
             <PaginaAcercaDe />
           </Route>
           <Route path="/crear-articulo" exact>
-            <PaginaFormulario articulo={articulo} totalArticulos={articulos.length} articulosComprados={articulosComprados}crearArticulo={crearArticulo}/>
+            <PaginaFormulario totalArticulos={articulos.length} articulosComprados={articulosComprados} crearArticulo={crearArticulo} editarArticulo={editarArticulo}/>
+          </Route>
+          <Route path="/editar-articulo/:idArticulo" exact>
+            <PaginaFormulario totalArticulos={articulos.length} articulosComprados={articulosComprados} crearArticulo={crearArticulo} buscarArticulo={buscarArticulo} editarArticulo={editarArticulo}/>
           </Route>
           <Route path="/" exact>
             <Redirect to="/principal" />
