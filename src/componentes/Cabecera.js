@@ -7,11 +7,11 @@ export const Cabecera = () => {
       <nav>
         <ul className="navegacion">
           <li>
-            <NavLink to="/" activeClassName="actual">
+            <NavLink to="/principal" activeClassName="actual">
               Principal
             </NavLink>
           </li>
-          <li className="actual">
+          <li>
             <NavLink to="/lista" activeClassName="actual">
               Lista
             </NavLink>
