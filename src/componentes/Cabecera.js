@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export const Cabecera = () => {
   return (
     <header className="cabecera espaciado bloque-superior">
@@ -5,13 +7,19 @@ export const Cabecera = () => {
       <nav>
         <ul className="navegacion">
           <li>
-            <a href="componentes/Principal.js">Principal</a>
+            <NavLink to="/" activeClassName="actual">
+              Principal
+            </NavLink>
           </li>
           <li className="actual">
-            <a href="componentes/Lista.js">Lista</a>
+            <NavLink to="/lista" activeClassName="actual">
+              Lista
+            </NavLink>
           </li>
           <li>
-            <a href="componentes/AcercaDe.js">Acerca de</a>
+            <NavLink to="/acercade" activeClassName="actual">
+              Acerca de
+            </NavLink>
           </li>
         </ul>
       </nav>

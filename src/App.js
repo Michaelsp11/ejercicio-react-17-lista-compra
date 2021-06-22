@@ -13,8 +13,8 @@ import { AcercaDe } from "./componentes/AcercaDe";
 function App() {
   return (
     <>
-      <Cabecera />
       <Router>
+        <Cabecera />
         <Switch>
           <Route path="/principal" exact>
             <Principal />
