@@ -20,7 +20,7 @@ export const PaginaLista = (props) => {
                     return (<li className="articulo" key={id}>
                         <input type="checkbox" className="marcar" checked={comprado} onChange={() => toogleComprado(articulo)}/>
                         <span className="nombre">{nombre}</span>
-                        <span className="precio">{precio? `${precio.toFixed(2)}€` : ""}</span>
+                        <span className="precio">{precio !== null ? `${precio.toFixed(2)}€` : ""}</span>
                         <i className="borrar fas fa-times"></i>
                     </li>);
                   }
