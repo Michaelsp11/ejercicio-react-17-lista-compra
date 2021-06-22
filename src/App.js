@@ -1,3 +1,5 @@
+
+import { Principal } from "./componentes/Principal";
 import { Cabecera } from "./componentes/Cabecera";
 function App() {
   return (
@@ -6,9 +8,7 @@ function App() {
       <Cabecera />
       {/*====================CABECERA======================*/}
       {/*====================PRINCIPAL======================*/}
-      <main className="home">
-        <h2>Bienvenido a la lista de la compra</h2>
-      </main>
+      <Principal />
       {/*======================PRINCIPAL====================*/}
       {/*====================ACERCA DE======================*/}
       <main className="acerca-de">
@@ -82,6 +82,7 @@ function App() {
       </main>
       {/*====================FORMULARIO======================*/}
     </>
+
   );
 }
 
